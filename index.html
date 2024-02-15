@@ -273,27 +273,25 @@
       loader.load(typeface, (font) => {
         const geometry = new TextGeometry("Yêu Huyền", {
           font: font,
-          size: 5,
-          height: 5,
+          size: 2,
+          height: 0.5,
           curveSegments: 10,
         });
         geometry.center();
-        let points = [];
-        for (let i = 0; i < geometry.attributes.position.count; i++) {
-          let x = geometry.attributes.position.getX(i);
-          let y = geometry.attributes.position.getY(i);
-          points.push(new THREE.Vector2(x, y));
-        }
-        let textGeometry = new THREE.BufferGeometry().setFromPoints(points);
         let textMesh = new THREE.Mesh(
-          textGeometry,
+          geometry,
           new THREE.MeshBasicMaterial({
             color: 0xfaa0a0,
             side: THREE.DoubleSide,
+            transparent: false,
+            opacity: 1,
+            fontWeight: "bold",
           })
         );
+        textMesh.position.y = 0;
         textMesh.rotation.z = 0.2;
-        textMesh.position.y = 20;
+
+        // Thêm mesh vào scene
         scene.add(textMesh);
       });
 
