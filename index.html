@@ -6,10 +6,8 @@
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <title>Trái Tim To Bự</title>
     <link rel="icon" href="images/favicon.png" />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
-    />
+    <link rel="apple-touch-icon" href="images/favicon.png" />
+    <meta name="msapplication-TileImage" content="images/favicon.png" />
     <script>
       var sdf = `
   // http://www.iquilezles.org/www/articles/distfunctions/distfunctions.htm
@@ -141,9 +139,9 @@
             .replace(
               `#include <color_vertex>`,
               `#include <color_vertex>
-				float d = length(abs(position) / vec3(40., 10., 40));
+				float d = length(abs(position) / vec3(16., 54., 103));
 				d = clamp(d, 0., 1.);
-				vColor = mix(vec3(227., 155., 0.), vec3(100., 50., 255.), d) / 255.;`
+				vColor = mix(vec3(54., 117., 23.), vec3(66., 110., 180.), d) / 255.;`
             )
             .replace(
               `#include <begin_vertex>`,
@@ -240,7 +238,7 @@
 
 			bool boolDiscard = heart > 0.0 || heart < -2.;
 
-			vec3 c = vec3(1.,0.412,0.706); // colour of the heart
+			vec3 c = vec3(0.0, 0.47, 0.75); // colour of the heart
 			if (heart > -0.125) c = vec3(1);
 
 			vC = c;        
@@ -281,7 +279,7 @@
         let textMesh = new THREE.Mesh(
           geometry,
           new THREE.MeshBasicMaterial({
-            color: 0xfaa0a0,
+            color: 0x008000,
             side: THREE.DoubleSide,
             transparent: false,
             opacity: 1,
